@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Hello</title>
+<head>
+<body>
+<button onclick="alert(getParameters());">Click me</button>
+</body>
+<script>
+
+function getParameters(){
+    if (window.location.hash != "") {
+        var hashParams = {};
+        window.location.hash.replace(/^#+/, '').split("&").forEach(function(param) {
+            var parts = param.split("=");
+            hashParams[parts[0]] = decodeURIComponent(parts[1]);
+        });
+        return hashParams;
+    }
+}
+
+console.log(getParameters());
+</script>
+</html>
